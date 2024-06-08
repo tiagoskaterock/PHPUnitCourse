@@ -2,8 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 
-require 'User.php';
-
 class UserTest extends TestCase
 {
 	function testReturnsFullName() 
