@@ -12,32 +12,21 @@ class QueueTest extends TestCase
 		static::$queue->clear();
 	}
 
-
-	// protected function tearDown() : void
-	// {
-	// 	unset($this->queue);
-	// }
-
-
 	public static function setUpBeforeClass() : void
 	{
 		static::$queue = new Queue;
 	}
 
-
 	public static function tearDownAfterClass() : void 
 	{
-		static::$queue = new Queue;
+		static::$queue = null;
 	}
-
-
 
 	public function testNewQueueIsEmpty()
 	{
 		$this->assertEquals(0, static::$queue->getCount());		
 	}
 
-	
 	public function testAnItemIsAddedToTheQueue() 
 	{
 		static::$queue->push('green');
@@ -45,7 +34,6 @@ class QueueTest extends TestCase
 		$this->assertEquals(1, static::$queue->getCount());		
 	}
 
-	
 	public function testAnItemIsRemovedFromTheQueue()
 	{	
 		static::$queue->push('green');
@@ -57,7 +45,6 @@ class QueueTest extends TestCase
 		$this->assertEquals('green', $item);
 	}
 
-
 	public function testAnItemIsRemovedFromTheFrontOfTheTheQueue()
 	{
 		static::$queue->push('first');
@@ -66,4 +53,26 @@ class QueueTest extends TestCase
 		$this->assertEquals('first', static::$queue->pop());
 	}
 
+	public function testMaxNumberOfItemsCanBeAdded()
+	{
+		for ($i = 0; $i < Queue::MAX_ITEMS; $i++) { 
+			static::$queue->push($i);
+		}
+
+		$this->assertEquals(Queue::MAX_ITEMS, static::$queue->getCount());
+	}
+
+	public function testExceptionThrownWhenAddingAnItemToAFullQueue()
+	{
+		for ($i = 0; $i < Queue::MAX_ITEMS; $i++) {
+			static::$queue->push($i);
+		}
+
+		$this->expectException(QueueException::class);
+
+		$this->expectExceptionMessage("Queue is full");
+
+		// Tentar adicionar um item a mais à fila cheia
+		static::$queue->push("wafer thin mint");
+	}
 }
