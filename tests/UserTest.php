@@ -4,9 +4,9 @@ use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
-	function testReturnsFullName() 
-	{
 
+	public function testReturnsFullName() 
+	{
 		$user = new User();
 
 		$user->first_name = "Tiago";
@@ -15,9 +15,29 @@ class UserTest extends TestCase
 		$this->assertEquals("Tiago Bordin", $user->getFullName());
 	}
 
-	function testFullNameIsEmptyByDefault() {
+
+	public function testFullNameIsEmptyByDefault() {
 		$user = new User();
 		$this->assertEquals('', $user->getFullName());
 	}
+
+
+	public function testNotificationIsSent()
+	{
+		$user = new User();
+
+		$mock_mailer = $this->createMock(Mailer::class);
+
+		$mock_mailer->method('sendMessage')
+					->willReturn(true);
+
+		$user->setMailer($mock_mailer);
+
+		$user->email = "example@email.com";
+
+		$this->assertTrue($user->notify("Hello"));
+	}
+
+
 
 }
