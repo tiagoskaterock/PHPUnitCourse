@@ -1,6 +1,6 @@
 # PHPUnit Study Project  
 ![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?logo=php) 
-![PHPUnit](https://img.shields.io/badge/PHPUnit-9.6.7-3C3C3C?logo=phpunit)
+![PHPUnit](https://img.shields.io/badge/PHPUnit-9.6.17-3C3C3C?logo=phpunit)
 
 This repository contains exercises and experiments with **PHPUnit**, aimed at understanding unit testing in PHP. The focus is on writing and executing test cases, learning assertions, and structuring tests for maintainable code.
 
