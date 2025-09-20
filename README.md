@@ -7,3 +7,9 @@ This repository contains exercises and experiments with **PHPUnit**, aimed at un
 The project is strictly for academic purposes, serving as a reference for improving testing skills and applying best practices in PHP development.
 
 Feel free to explore the test examples, run them locally, and adapt the exercises for your own learning.
+
+To execute the tests:
+
+`phpunit <nameOfTheTestClass>;`
+
+Be sure you have PHP and PHPUnit installed.
