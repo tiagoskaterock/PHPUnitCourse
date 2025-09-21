@@ -1,0 +1,1 @@
+{"version":1,"defects":{"FunctionsTest::testaddZeroAndNegativeInteger":3},"times":{"FunctionsTest::testaddTwoPositiveIntegers":0.001,"FunctionsTest::testaddTwoNegativeIntegers":0,"FunctionsTest::testaddPositiveAndNegativeIntegers":0,"FunctionsTest::testaddZeroAndPositiveInteger":0,"FunctionsTest::testaddZeroAndNegativeInteger":0,"FunctionsTest::testAddIntegersIsCommutative":0}}
